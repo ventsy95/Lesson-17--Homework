@@ -48,7 +48,7 @@ public class Page {
 		}
 	}
 
-	boolean containtsDigits() {
+	boolean containsDigits() {
 		if(this.getText()!=null && this.getText().matches(".*\\d.*")){
 			return true;
 		}else{
