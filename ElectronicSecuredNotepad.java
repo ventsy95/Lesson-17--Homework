@@ -9,18 +9,26 @@ public class ElectronicSecuredNotepad extends SecuredNotepad implements IElectro
 
 	@Override
 	public void start() {
-		this.isNotepadStarted = true;
+		if (passwordCheck()) {
+			this.isNotepadStarted = true;
+		}
 	}
 
 	@Override
 	public void stop() {
-		this.isNotepadStarted = false;
+		if (passwordCheck()) {
+			this.isNotepadStarted = false;
+		}
 	}
 
 	@Override
 	public boolean isStarted() {
-		if (isNotepadStarted) {
-			return true;
+		if (passwordCheck()) {
+			if (isNotepadStarted) {
+				return true;
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}
