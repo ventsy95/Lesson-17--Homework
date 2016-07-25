@@ -48,4 +48,26 @@ public class SimpleNotepad implements INotepad {
 		}
 	}
 
+	@Override
+	public boolean searchWord(String word) {
+		for(int index=0; index<pages.length; index++){
+			if(pages[index].searchWord(word)){
+				System.out.println("Word found on page "+(index+1));
+				return true;
+			}
+		}
+		System.out.println("Word not found.");
+		return false;
+	}
+
+	@Override
+	public void printAllPagesWithDigits() {
+		for(int index=0; index<pages.length; index++){
+			if(pages[index].containtsDigits()){
+				pages[index].readPage();
+			}
+		}
+		
+	}
+
 }
