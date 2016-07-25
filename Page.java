@@ -22,16 +22,18 @@ public class Page {
 		}
 	}
 
-	void addText(String text){
-		String oldText= this.getText();
-		this.setText(oldText + "\n " + text);
+	void addText(String text) {
+		if (text != null) {
+			String oldText = this.getText();
+			this.setText(oldText + "\n " + text);
+		}
 	}
-	
-	void deleteText(){
+
+	void deleteText() {
 		this.setText("");
 	}
-	
-	void readPage(){
+
+	void readPage() {
 		System.out.println(this.getTitle());
 		System.out.println(this.getText());
 	}
