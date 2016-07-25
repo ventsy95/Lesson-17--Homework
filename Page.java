@@ -17,7 +17,7 @@ public class Page {
 	}
 
 	public void setText(String text) {
-			this.text = text;
+		this.text = text;
 	}
 
 	void addText(String text) {
@@ -35,5 +35,14 @@ public class Page {
 		System.out.println(this.getTitle());
 		System.out.println(this.getText());
 	}
-	
+
+	void searchWord(String word) {
+		if (word != null) {
+			if (this.getText().contains(word)) {
+				System.out.println("Word: " + word + " found in text.");
+			} else {
+				System.out.println("Word: " + word + " not found in text.");
+			}
+		}
+	}
 }
