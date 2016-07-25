@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class SimpleNotepad implements INotepad {
-	private Page[] pages;
+	Page[] pages;
 
 	public SimpleNotepad(int numberOfPages) {
 		this.pages = new Page[numberOfPages];
