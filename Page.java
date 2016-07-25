@@ -30,7 +30,7 @@ public class Page {
 	}
 
 	void deleteText() {
-		this.setText("");
+		this.setText(null);
 	}
 
 	void readPage() {
