@@ -4,4 +4,6 @@ public interface INotepad {
 	void insertNewTextOnPage(int page, String text);
 	void deleteTextOnPage(int page);
 	void checkOutPages();
+	boolean searchWord(String word);
+	void printAllPagesWithDigits();
 }
