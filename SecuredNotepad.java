@@ -23,34 +23,34 @@ public class SecuredNotepad extends SimpleNotepad {
 
 	@Override
 	public void deleteTextOnPage(int page) {
-		if (passwordCheck()) {
-			this.pages[page].deleteText();
+		if (passwordCheck() && page <= this.pages.length && page > 0) {
+			this.pages[page-1].deleteText();
 		}
 	}
 
 	@Override
 	public void checkOutPages() {
 		if (passwordCheck()) {
-		if (this.pages != null) {
-			for (int index = 0; index < this.pages.length; index++) {
-				this.pages[index].readPage();
+			if (this.pages != null) {
+				for (int index = 0; index < this.pages.length; index++) {
+					this.pages[index].readPage();
+				}
 			}
-		}
 		}
 	}
 
 	@Override
 	public void addTextToPage(int page, String text) {
-		if (passwordCheck()) {
-		this.pages[page].addText(text);
+		if (passwordCheck() && page <= this.pages.length && page > 0) {
+			this.pages[page-1].addText(text);
 		}
 	}
 
 	@Override
 	public void insertNewTextOnPage(int page, String text) {
-		if (passwordCheck()) {
-		this.pages[page].deleteText();
-		this.pages[page].addText(text);
+		if (passwordCheck() && page <= this.pages.length && page > 0) {
+			this.pages[page-1].deleteText();
+			this.pages[page-1].setText(text);
 		}
 	}
 
