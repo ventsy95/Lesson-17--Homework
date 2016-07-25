@@ -36,13 +36,23 @@ public class Page {
 		System.out.println(this.getText());
 	}
 
-	void searchWord(String word) {
+	boolean searchWord(String word) {
 		if (word != null) {
 			if (this.getText().contains(word)) {
-				System.out.println("Word: " + word + " found in text.");
+				return true;
 			} else {
-				System.out.println("Word: " + word + " not found in text.");
+				return false;
 			}
+		} else {
+			return false;
+		}
+	}
+
+	boolean containtsDigits() {
+		if(this.getText().matches(".*\\d.*")){
+			return true;
+		}else{
+			return false;
 		}
 	}
 }
