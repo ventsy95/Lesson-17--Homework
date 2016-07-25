@@ -17,9 +17,7 @@ public class Page {
 	}
 
 	public void setText(String text) {
-		if (text != null) {
 			this.text = text;
-		}
 	}
 
 	void addText(String text) {
@@ -37,4 +35,5 @@ public class Page {
 		System.out.println(this.getTitle());
 		System.out.println(this.getText());
 	}
+	
 }
