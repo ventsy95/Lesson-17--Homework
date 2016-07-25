@@ -109,7 +109,7 @@ public class ElectronicSecuredNotepad extends SecuredNotepad implements IElectro
 		if (isStarted()) {
 			if (passwordCheck()) {
 				for (int index = 0; index < pages.length; index++) {
-					if (pages[index].containtsDigits()) {
+					if (pages[index].containsDigits()) {
 						pages[index].readPage();
 					}
 				}
