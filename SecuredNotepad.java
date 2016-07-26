@@ -2,14 +2,37 @@ import java.util.Scanner;
 
 public class SecuredNotepad extends SimpleNotepad {
 	private String password;
+	Scanner sc = new Scanner(System.in);
 
-	public SecuredNotepad(int numberOfPages, String password) {
+	private SecuredNotepad(int numberOfPages, String password) {
 		super(numberOfPages);
 		this.setPassword(password);
 	}
+	
+	public static SecuredNotepad createObject(int numberOfPages, String password){
+		if(isPasswordStrong(password)){
+			return new SecuredNotepad(numberOfPages, password);
+		}else{
+			return null;
+		}
+	}
+
+	private static boolean isPasswordStrong(String pass) {
+		if (!pass.matches(".*[A-Z].*")) {
+			return false;
+		}
+		if (!pass.matches(".*[a-z].*")) {
+			return false;
+		}
+		if (!pass.matches(".*\\d.*")) {
+			return false;
+		} else {
+			return true;
+		}
+
+	}
 
 	public boolean passwordCheck() {
-		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter password for notepad: ");
 		String pass = sc.nextLine();
 		if (pass.equals(this.getPassword())) {
@@ -87,8 +110,10 @@ public class SecuredNotepad extends SimpleNotepad {
 	}
 
 	private void setPassword(String password) {
-		if (password != null) {
+		if (password != null && isPasswordStrong(password) && password.length()>=5) {
 			this.password = password;
+		} else {
+			System.out.println("Password must be at least 5 characters and must contain at least one small letter, capital letter and number!");
 		}
 	}
 
