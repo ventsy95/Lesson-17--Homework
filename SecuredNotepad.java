@@ -4,7 +4,7 @@ public class SecuredNotepad extends SimpleNotepad {
 	private String password;
 	Scanner sc = new Scanner(System.in);
 
-	private SecuredNotepad(int numberOfPages, String password) {
+	SecuredNotepad(int numberOfPages, String password) {
 		super(numberOfPages);
 		this.setPassword(password);
 	}
@@ -17,7 +17,7 @@ public class SecuredNotepad extends SimpleNotepad {
 		}
 	}
 
-	private static boolean isPasswordStrong(String pass) {
+	static boolean isPasswordStrong(String pass) {
 		if (!pass.matches(".*[A-Z].*")) {
 			return false;
 		}
