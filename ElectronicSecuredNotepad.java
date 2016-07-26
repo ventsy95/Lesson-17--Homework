@@ -2,9 +2,17 @@
 public class ElectronicSecuredNotepad extends SecuredNotepad implements IElectronicDevice {
 	private boolean isNotepadStarted;
 
-	public ElectronicSecuredNotepad(int numberOfPages, String password) {
+	private ElectronicSecuredNotepad(int numberOfPages, String password) {
 		super(numberOfPages, password);
-
+		SecuredNotepad.createObject(numberOfPages, password);
+	}
+	
+	public static ElectronicSecuredNotepad createObject(int numberOfPages, String password){
+		if(isPasswordStrong(password)){
+			return new ElectronicSecuredNotepad(numberOfPages, password);
+		}else{
+			return null;
+		}
 	}
 
 	@Override
