@@ -5,9 +5,9 @@ public class NotepadDemo {
 
 		SimpleNotepad simple = new SimpleNotepad(2);
 
-		INotepad secured = new SecuredNotepad(4, "asdf1234");
-		
-		ElectronicSecuredNotepad elNotepad= new ElectronicSecuredNotepad(3, "password");
+		SecuredNotepad secured= SecuredNotepad.createObject(3, "asDf234");
+	
+		ElectronicSecuredNotepad elNotepad= ElectronicSecuredNotepad.createObject(3, "pAssw0rd");
 
 		simple.checkOutPages();
 		simple.deleteTextOnPage(2);
@@ -30,6 +30,7 @@ public class NotepadDemo {
 		elNotepad.checkOutPages();
 		elNotepad.stop();
 		elNotepad.deleteTextOnPage(2);
+		
 	}
 
 }
